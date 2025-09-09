@@ -5,12 +5,13 @@ import java.util.OptionalInt;
 public class Person {
     protected final String name;
     protected final String surname;
-    protected OptionalInt age = null;
+    protected OptionalInt age;
     protected String address;
 
     public Person(String name, String surname) {
         this.name = name;
         this.surname = surname;
+        this.age = OptionalInt.empty();
     }
 
     public Person(String name, String surname, int age) {
@@ -20,7 +21,7 @@ public class Person {
     }
 
     public boolean hasAge() {
-        return age != null && age.isPresent();
+        return age.isPresent();
     }
 
     public boolean hasAddress() {
@@ -71,3 +72,4 @@ public class Person {
         return Objects.hash(name, surname);
     }
 }
+
